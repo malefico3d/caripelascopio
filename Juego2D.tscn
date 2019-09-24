@@ -1,0 +1,406 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Juego2D.gd" type="Script" id=1]
+[ext_resource path="res://Mascaras/Ojos_mask.png" type="Texture" id=2]
+[ext_resource path="res://Discos/Ojos_disco1.png" type="Texture" id=3]
+[ext_resource path="res://Mascaras/boca_mask.png" type="Texture" id=4]
+[ext_resource path="res://Discos/disco-bocas.png" type="Texture" id=5]
+[ext_resource path="res://Discos/Caras_disco1.png" type="Texture" id=6]
+[ext_resource path="res://Caras_disco1.gd" type="Script" id=7]
+[ext_resource path="res://fondo_pantalla.png" type="Texture" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Rotacion"
+length = 4.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AniGiroOjo/Ojos-derecha:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -93.7621, -138.832, -179.034, -223.64, -270.891, -321.143, -364.029, -404.157, -451.133 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AniGiroOjo")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ true ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="VisualShaderNodeInput" id=2]
+input_name = "uv"
+
+[sub_resource type="StreamTexture" id=3]
+flags = 7
+
+[sub_resource type="VisualShaderNodeTexture" id=4]
+texture = SubResource( 3 )
+
+[sub_resource type="VisualShaderNodeTexture" id=5]
+texture = ExtResource( 3 )
+
+[sub_resource type="VisualShaderNodeInput" id=6]
+input_name = "uv"
+
+[sub_resource type="VisualShader" id=7]
+code = "shader_type canvas_item;
+uniform sampler2D tex_frg_5;
+
+
+void vertex() {
+// Salida:0
+
+}
+
+void fragment() {
+// Entrada:2
+	vec3 n_out2p0;
+	n_out2p0 = vec3(UV,0.0);
+
+// Texture:5
+	vec3 n_out5p0;
+	float n_out5p1;
+	vec4 tex_frg_5_read = texture( tex_frg_5 , n_out2p0.xy );
+	n_out5p0 = tex_frg_5_read.rgb;
+	n_out5p1 = tex_frg_5_read.a;
+
+// Salida:0
+	COLOR.rgb = n_out5p0;
+	COLOR.a = n_out5p1;
+
+}
+
+void light() {
+// Salida:0
+
+}
+"
+graph_offset = Vector2( -213.327, 73.5 )
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2( 480, 120 )
+nodes/fragment/2/node = SubResource( 2 )
+nodes/fragment/2/position = Vector2( -180, 140 )
+nodes/fragment/4/node = SubResource( 4 )
+nodes/fragment/4/position = Vector2( 40, 320 )
+nodes/fragment/5/node = SubResource( 5 )
+nodes/fragment/5/position = Vector2( 20, -20 )
+nodes/fragment/7/node = SubResource( 6 )
+nodes/fragment/7/position = Vector2( -200, 340 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 5, 0, 5, 0, 0, 0, 7, 0, 4, 0, 5, 1, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "Rotacion"
+length = 4.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AniGiroOjo2/Ojos-izquierda:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -96.0825, -42.8039, -1.16034, 42.4272, 91.5412, 138.876, 181.207, 217.761, 270.742 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AniGiroOjo2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ true ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Rotacion"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AniBoca/Bocas:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -47.2975, -87.0352, -129.92, -176.746, -224.451, -269.276, -314.833, -357.45, -406.169 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AniBoca")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ true ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "RotacionCara"
+length = 4.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AniCara/Caras:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -44.5706, -0.0326449, 44.2553, 89.8624, 137.262, 179.39, 221.517, 266.708, 315.655 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AniCara")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1, 1.5, 2, 2.5, 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ true ],
+"method": "stop"
+} ]
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Cara" type="Area2D" parent="."]
+
+[node name="Ojos_mask-derecha" type="Light2D" parent="Cara"]
+position = Vector2( 771.019, 249.74 )
+rotation = -0.0106804
+scale = Vector2( 0.322497, 0.322504 )
+texture = ExtResource( 2 )
+mode = 3
+range_item_cull_mask = 2
+
+[node name="AniGiroOjo" type="AnimationPlayer" parent="Cara/Ojos_mask-derecha"]
+anims/Rotacion = SubResource( 1 )
+
+[node name="Ojos-derecha" type="Sprite" parent="Cara/Ojos_mask-derecha/AniGiroOjo"]
+light_mask = 2
+material = SubResource( 8 )
+position = Vector2( 826.91, 230.616 )
+rotation = -4.72794
+scale = Vector2( 0.302477, -0.297783 )
+texture = ExtResource( 3 )
+
+[node name="Ojos_mask-izquierda" type="Light2D" parent="Cara"]
+position = Vector2( 296.094, 216.618 )
+rotation = 3.13091
+scale = Vector2( 0.481649, 0.481649 )
+texture = ExtResource( 2 )
+mode = 3
+range_item_cull_mask = 4
+
+[node name="AniGiroOjo2" type="AnimationPlayer" parent="Cara/Ojos_mask-izquierda"]
+anims/Rotacion = SubResource( 9 )
+
+[node name="Ojos-izquierda" type="Sprite" parent="Cara/Ojos_mask-izquierda/AniGiroOjo2"]
+light_mask = 5
+position = Vector2( 234.537, 232.05 )
+rotation = 4.72533
+scale = Vector2( 0.329239, 0.329247 )
+texture = ExtResource( 3 )
+
+[node name="boca_mask" type="Light2D" parent="Cara"]
+light_mask = 8
+position = Vector2( 518.578, 636.735 )
+scale = Vector2( 0.675431, 0.700072 )
+texture = ExtResource( 4 )
+mode = 3
+range_item_cull_mask = 8
+
+[node name="AniBoca" type="AnimationPlayer" parent="Cara/boca_mask"]
+anims/Rotacion = SubResource( 10 )
+
+[node name="Bocas" type="Sprite" parent="Cara/boca_mask/AniBoca"]
+show_behind_parent = true
+light_mask = 8
+position = Vector2( 521.49, 693.506 )
+rotation = -7.08899
+scale = Vector2( 1.23669, 1.23827 )
+texture = ExtResource( 5 )
+
+[node name="cara_mask" type="Light2D" parent="Cara"]
+position = Vector2( 622.159, 803.641 )
+rotation = -0.0613672
+scale = Vector2( 1.56, 1.56 )
+texture = ExtResource( 4 )
+mode = 3
+range_height = -30.5
+range_item_cull_mask = 16
+
+[node name="AniCara" type="AnimationPlayer" parent="Cara/cara_mask"]
+anims/RotacionCara = SubResource( 11 )
+
+[node name="Caras" type="Sprite" parent="Cara/cara_mask/AniCara"]
+light_mask = 16
+position = Vector2( -315.332, 284.512 )
+rotation = 8.61984
+scale = Vector2( 1.14763, 1.14763 )
+z_index = -1
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+
+[node name="Rotar-cara" type="TextureButton" parent="."]
+margin_left = 323.0
+margin_top = 47.0
+margin_right = 1483.0
+margin_bottom = 1274.0
+rect_scale = Vector2( 0.374235, 0.422553 )
+
+[node name="Salida" type="Label" parent="."]
+margin_left = 90.0
+margin_top = 130.0
+margin_right = 210.0
+margin_bottom = 390.0
+text = "Click sobre las partes del rostro para cambiar"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Rotar-ojo-izquierdo" type="TextureButton" parent="."]
+margin_left = 403.0
+margin_top = 198.0
+margin_right = 761.0
+margin_bottom = 378.0
+rect_scale = Vector2( 0.374235, 0.422553 )
+
+[node name="Rotar-boca" type="TextureButton" parent="."]
+margin_left = 439.0
+margin_top = 321.0
+margin_right = 528.0
+margin_bottom = 469.0
+rect_rotation = -0.555683
+rect_scale = Vector2( 2.09299, 1.46483 )
+
+[node name="Rotar-ojo-derecho" type="TextureButton" parent="."]
+margin_left = 551.003
+margin_top = 197.0
+margin_right = 899.003
+margin_bottom = 386.0
+rect_scale = Vector2( 0.374235, 0.422553 )
+
+[node name="fondo_pantalla" type="Sprite" parent="."]
+position = Vector2( 512.698, 300 )
+scale = Vector2( 1.00136, 1 )
+z_index = -1
+texture = ExtResource( 8 )
