@@ -1,20 +1,16 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Juego2D.gd" type="Script" id=1]
 [ext_resource path="res://Mascaras/Ojos_mask.png" type="Texture" id=2]
 [ext_resource path="res://Discos/Ojos_disco1.png" type="Texture" id=3]
 [ext_resource path="res://Mascaras/boca_mask.png" type="Texture" id=4]
-[ext_resource path="res://Discos/disco-bocas.png" type="Texture" id=5]
+[ext_resource path="res://Discos/Bocas_disco1.png" type="Texture" id=5]
 [ext_resource path="res://Discos/Caras_disco1.png" type="Texture" id=6]
 [ext_resource path="res://Caras_disco1.gd" type="Script" id=7]
-[ext_resource path="res://fondo_pantalla.png" type="Texture" id=8]
-[ext_resource path="res://Menues/Boton_caras.png" type="Texture" id=9]
-[ext_resource path="res://Caras.gd" type="Script" id=10]
-[ext_resource path="res://Menues/Caras.png" type="Texture" id=11]
-[ext_resource path="res://Menues/Boton-ojos.png" type="Texture" id=12]
-[ext_resource path="res://Menues/Ojos.png" type="Texture" id=13]
-[ext_resource path="res://Menues/Boton-bocas.png" type="Texture" id=14]
-[ext_resource path="res://Menues/Bocas.png" type="Texture" id=15]
+[ext_resource path="res://Menues/Bocas.png" type="Texture" id=8]
+[ext_resource path="res://Menues/Ojos.png" type="Texture" id=9]
+[ext_resource path="res://Menues/Caras.png" type="Texture" id=10]
+[ext_resource path="res://fondo_pantalla.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Rotacion"
@@ -287,19 +283,18 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=12]
 resource_name = "slide"
-length = 2.0
-loop = true
+length = 0.6
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimationPlayer/Caras2:region_rect")
+tracks/0/path = NodePath("AnimationPlayer/Bocas:region_rect")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Rect2( 0, 0, 245, 150 ), Rect2( 0, 155, 245, 150 ), Rect2( 0, 309, 245, 150 ) ]
+"values": [ Rect2( 0, 0, 249, 154 ), Rect2( 0, 155, 249, 154 ), Rect2( 0, 309, 249, 154 ), Rect2( 0, 464, 249, 154 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("AnimationPlayer")
@@ -308,9 +303,12 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
 "args": [ false ],
 "method": "stop"
 }, {
@@ -321,8 +319,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=13]
 resource_name = "slide"
-length = 2.0
-loop = true
+length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/Ojos:region_rect")
 tracks/0/interp = 1
@@ -330,10 +327,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Rect2( 0, 0, 249, 154 ), Rect2( 0, 155, 249, 154 ), Rect2( 0, 309, 249, 154 ) ]
+"values": [ Rect2( 0, 0, 249, 154 ), Rect2( 0, 155, 249, 154 ), Rect2( 0, 309, 249, 154 ), Rect2( 0, 464, 249, 154 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("AnimationPlayer")
@@ -342,9 +339,12 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
 "args": [ false ],
 "method": "stop"
 }, {
@@ -354,20 +354,18 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=14]
-resource_name = "slide"
-length = 2.0
-loop = true
+length = 0.6
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimationPlayer/Bocas:region_rect")
+tracks/0/path = NodePath("AnimationPlayer/Caras2:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Rect2( 0, 0, 249, 154 ), Rect2( 0, 155, 249, 154 ), Rect2( 0, 309, 249, 154 ) ]
+"values": [ Rect2( 0, 0, 245, 150 ), Rect2( 0, 155, 245, 150 ), Rect2( 0, 309, 245, 150 ), Rect2( 0, 464, 245, 150 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("AnimationPlayer")
@@ -376,9 +374,12 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
 "args": [ false ],
 "method": "stop"
 }, {
@@ -476,16 +477,6 @@ margin_right = 1483.0
 margin_bottom = 1274.0
 rect_scale = Vector2( 0.374235, 0.422553 )
 
-[node name="Salida" type="Label" parent="."]
-margin_left = 90.0
-margin_top = 130.0
-margin_right = 210.0
-margin_bottom = 390.0
-text = "Click sobre las partes del rostro para cambiar"
-align = 1
-valign = 1
-autowrap = true
-
 [node name="Rotar-ojo-izquierdo" type="TextureButton" parent="."]
 margin_left = 403.0
 margin_top = 198.0
@@ -508,60 +499,62 @@ margin_right = 899.003
 margin_bottom = 386.0
 rect_scale = Vector2( 0.374235, 0.422553 )
 
+[node name="Panel" type="Panel" parent="."]
+margin_left = 60.0
+margin_top = 111.0
+margin_right = 241.0
+margin_bottom = 431.0
+
+[node name="Bocas_TexButton" type="TextureButton" parent="Panel"]
+margin_left = 27.0
+margin_top = 116.0
+margin_right = 153.0
+margin_bottom = 195.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Bocas_TexButton"]
+anims/slide = SubResource( 12 )
+
+[node name="Bocas" type="Sprite" parent="Panel/Bocas_TexButton/AnimationPlayer"]
+position = Vector2( 148.63, 265.452 )
+scale = Vector2( 0.506657, 0.5 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 249, 154 )
+
+[node name="Ojos_TexButton" type="TextureButton" parent="Panel"]
+margin_left = 25.0
+margin_top = 36.0
+margin_right = 151.0
+margin_bottom = 113.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Ojos_TexButton"]
+anims/slide = SubResource( 13 )
+
+[node name="Ojos" type="Sprite" parent="Panel/Ojos_TexButton/AnimationPlayer"]
+position = Vector2( 147.587, 186.41 )
+scale = Vector2( 0.506657, 0.5 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 249, 154 )
+
+[node name="Caras_TexButton" type="TextureButton" parent="Panel"]
+margin_left = 27.0
+margin_top = 196.0
+margin_right = 151.0
+margin_bottom = 273.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Caras_TexButton"]
+anims/slide = SubResource( 14 )
+
+[node name="Caras2" type="Sprite" parent="Panel/Caras_TexButton/AnimationPlayer"]
+position = Vector2( 148.419, 345.444 )
+scale = Vector2( 0.506657, 0.5 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 0, 464, 245, 150 )
+
 [node name="fondo_pantalla" type="Sprite" parent="."]
 position = Vector2( 513.415, 300 )
 scale = Vector2( 1.00136, 1 )
 z_index = -1
-texture = ExtResource( 8 )
-
-[node name="PanelContainer" type="PanelContainer" parent="."]
-margin_left = 82.0
-margin_top = 139.0
-margin_right = 217.0
-margin_bottom = 389.0
-
-[node name="Caras" type="TouchScreenButton" parent="PanelContainer"]
-position = Vector2( 4.81401, 167.874 )
-scale = Vector2( 0.5, 0.5 )
-normal = ExtResource( 9 )
-script = ExtResource( 10 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/Caras"]
-anims/slide = SubResource( 12 )
-
-[node name="Caras2" type="Sprite" parent="PanelContainer/Caras/AnimationPlayer"]
-position = Vector2( 150.006, 345.444 )
-scale = Vector2( 0.506657, 0.5 )
 texture = ExtResource( 11 )
-region_enabled = true
-region_rect = Rect2( 0, 155, 245, 150 )
-
-[node name="Ojos" type="TouchScreenButton" parent="PanelContainer"]
-position = Vector2( 5.96539, 7.90424 )
-scale = Vector2( 0.5, 0.5 )
-normal = ExtResource( 12 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/Ojos"]
-anims/slide = SubResource( 13 )
-
-[node name="Ojos" type="Sprite" parent="PanelContainer/Ojos/AnimationPlayer"]
-position = Vector2( 147.587, 186.41 )
-scale = Vector2( 0.506657, 0.5 )
-texture = ExtResource( 13 )
-region_enabled = true
-region_rect = Rect2( 0, 155, 249, 154 )
-
-[node name="Bocas" type="TouchScreenButton" parent="PanelContainer"]
-position = Vector2( 5.22348, 87.5819 )
-scale = Vector2( 0.5, 0.5 )
-normal = ExtResource( 14 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/Bocas"]
-anims/slide = SubResource( 14 )
-
-[node name="Bocas" type="Sprite" parent="PanelContainer/Bocas/AnimationPlayer"]
-position = Vector2( 148.63, 265.452 )
-scale = Vector2( 0.506657, 0.5 )
-texture = ExtResource( 15 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 249, 154 )
