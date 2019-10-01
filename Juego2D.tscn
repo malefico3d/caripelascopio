@@ -1,16 +1,17 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Juego2D.gd" type="Script" id=1]
 [ext_resource path="res://Mascaras/Ojos_mask.png" type="Texture" id=2]
 [ext_resource path="res://Discos/Ojos_disco1.png" type="Texture" id=3]
-[ext_resource path="res://Mascaras/boca_mask.png" type="Texture" id=4]
-[ext_resource path="res://Discos/Bocas_disco1.png" type="Texture" id=5]
-[ext_resource path="res://Discos/Caras_disco1.png" type="Texture" id=6]
-[ext_resource path="res://Caras_disco1.gd" type="Script" id=7]
-[ext_resource path="res://Menues/Bocas.png" type="Texture" id=8]
-[ext_resource path="res://Menues/Ojos.png" type="Texture" id=9]
-[ext_resource path="res://Menues/Caras.png" type="Texture" id=10]
-[ext_resource path="res://fondo_pantalla.png" type="Texture" id=11]
+[ext_resource path="res://Discos/Ojos_disco2.png" type="Texture" id=4]
+[ext_resource path="res://Mascaras/boca_mask.png" type="Texture" id=5]
+[ext_resource path="res://Discos/Bocas_disco1.png" type="Texture" id=6]
+[ext_resource path="res://Discos/Caras_disco1.png" type="Texture" id=7]
+[ext_resource path="res://Caras_disco1.gd" type="Script" id=8]
+[ext_resource path="res://fondo_pantalla.png" type="Texture" id=9]
+[ext_resource path="res://Menues/Ojos.png" type="Texture" id=10]
+[ext_resource path="res://Menues/Caras.png" type="Texture" id=11]
+[ext_resource path="res://Menues/Bocas.png" type="Texture" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Rotacion"
@@ -283,27 +284,27 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=12]
 resource_name = "slide"
-length = 0.6
+length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimationPlayer/Bocas:region_rect")
+tracks/0/path = NodePath("../Ojos_TexButton/AnimationPlayer/Ojos:region_rect")
 tracks/0/interp = 1
-tracks/0/loop_wrap = false
+tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Rect2( 0, 0, 249, 154 ), Rect2( 0, 155, 249, 154 ), Rect2( 0, 309, 249, 154 ), Rect2( 0, 464, 249, 154 ) ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/path = NodePath("../Ojos_TexButton/AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.2, 0.4, 0.6 ),
+"times": PoolRealArray( 0.5, 1, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [ false ],
@@ -318,28 +319,27 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=13]
-resource_name = "slide"
-length = 0.6
+length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimationPlayer/Ojos:region_rect")
+tracks/0/path = NodePath("../Caras_TexButton/AnimationPlayer/Caras2:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Rect2( 0, 0, 249, 154 ), Rect2( 0, 155, 249, 154 ), Rect2( 0, 309, 249, 154 ), Rect2( 0, 464, 249, 154 ) ]
+"values": [ Rect2( 0, 0, 245, 150 ), Rect2( 0, 155, 245, 150 ), Rect2( 0, 309, 245, 150 ), Rect2( 0, 464, 245, 150 ) ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/path = NodePath("../Caras_TexButton/AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.2, 0.4, 0.6 ),
+"times": PoolRealArray( 0.5, 1, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [ false ],
@@ -354,27 +354,27 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=14]
-length = 0.6
+length = 1.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimationPlayer/Caras2:region_rect")
+tracks/0/path = NodePath("../Bocas_TexButton/AnimationPlayer/Bocas:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Rect2( 0, 0, 245, 150 ), Rect2( 0, 155, 245, 150 ), Rect2( 0, 309, 245, 150 ), Rect2( 0, 464, 245, 150 ) ]
+"values": [ Rect2( 0, 0, 249, 154 ), Rect2( 0, 155, 249, 154 ), Rect2( 0, 309, 249, 154 ), Rect2( 0, 464, 249, 154 ) ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/path = NodePath("../Bocas_TexButton/AnimationPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.2, 0.4, 0.6 ),
+"times": PoolRealArray( 0.5, 1, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [ false ],
@@ -408,9 +408,9 @@ anims/Rotacion = SubResource( 1 )
 light_mask = 2
 material = SubResource( 8 )
 position = Vector2( 826.91, 230.616 )
-rotation = -4.72794
-scale = Vector2( 0.302477, -0.297783 )
-texture = ExtResource( 3 )
+rotation = -4.7281
+scale = Vector2( 0.302, -0.298 )
+texture = ExtResource( 4 )
 
 [node name="Ojos_mask-izquierda" type="Light2D" parent="Cara"]
 position = Vector2( 296.094, 216.618 )
@@ -434,7 +434,7 @@ texture = ExtResource( 3 )
 light_mask = 8
 position = Vector2( 518.578, 636.735 )
 scale = Vector2( 0.675431, 0.700072 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 mode = 3
 range_item_cull_mask = 8
 
@@ -447,13 +447,13 @@ light_mask = 8
 position = Vector2( 521.49, 693.506 )
 rotation = -7.08899
 scale = Vector2( 1.23669, 1.23827 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="cara_mask" type="Light2D" parent="Cara"]
 position = Vector2( 625.31, 787.254 )
 rotation = -0.0613672
 scale = Vector2( 1.56, 1.56 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 mode = 3
 range_height = -30.5
 range_item_cull_mask = 16
@@ -467,8 +467,8 @@ position = Vector2( -315.332, 284.512 )
 rotation = 8.61984
 scale = Vector2( 1.14763, 1.14763 )
 z_index = -1
-texture = ExtResource( 6 )
-script = ExtResource( 7 )
+texture = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="Rotar-cara" type="TextureButton" parent="."]
 margin_left = 323.0
@@ -499,62 +499,56 @@ margin_right = 899.003
 margin_bottom = 386.0
 rect_scale = Vector2( 0.374235, 0.422553 )
 
-[node name="Panel" type="Panel" parent="."]
-margin_left = 60.0
-margin_top = 111.0
-margin_right = 241.0
-margin_bottom = 431.0
-
-[node name="Bocas_TexButton" type="TextureButton" parent="Panel"]
-margin_left = 27.0
-margin_top = 116.0
-margin_right = 153.0
-margin_bottom = 195.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Bocas_TexButton"]
-anims/slide = SubResource( 12 )
-
-[node name="Bocas" type="Sprite" parent="Panel/Bocas_TexButton/AnimationPlayer"]
-position = Vector2( 148.63, 265.452 )
-scale = Vector2( 0.506657, 0.5 )
-texture = ExtResource( 8 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 249, 154 )
-
-[node name="Ojos_TexButton" type="TextureButton" parent="Panel"]
-margin_left = 25.0
-margin_top = 36.0
-margin_right = 151.0
-margin_bottom = 113.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Ojos_TexButton"]
-anims/slide = SubResource( 13 )
-
-[node name="Ojos" type="Sprite" parent="Panel/Ojos_TexButton/AnimationPlayer"]
-position = Vector2( 147.587, 186.41 )
-scale = Vector2( 0.506657, 0.5 )
-texture = ExtResource( 9 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 249, 154 )
-
-[node name="Caras_TexButton" type="TextureButton" parent="Panel"]
-margin_left = 27.0
-margin_top = 196.0
-margin_right = 151.0
-margin_bottom = 273.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Caras_TexButton"]
-anims/slide = SubResource( 14 )
-
-[node name="Caras2" type="Sprite" parent="Panel/Caras_TexButton/AnimationPlayer"]
-position = Vector2( 148.419, 345.444 )
-scale = Vector2( 0.506657, 0.5 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 0, 464, 245, 150 )
-
 [node name="fondo_pantalla" type="Sprite" parent="."]
 position = Vector2( 513.415, 300 )
 scale = Vector2( 1.00136, 1 )
 z_index = -1
+texture = ExtResource( 9 )
+
+[node name="Ojos_TexButton" type="TextureButton" parent="."]
+margin_left = 84.0
+margin_top = 147.0
+margin_right = 212.0
+margin_bottom = 223.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ojos_TexButton"]
+anims/slide = SubResource( 12 )
+
+[node name="Ojos" type="Sprite" parent="Ojos_TexButton/AnimationPlayer"]
+position = Vector2( 147.587, 186.41 )
+scale = Vector2( 0.506657, 0.5 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 0, 464, 249, 154 )
+
+[node name="Caras_TexButton" type="TextureButton" parent="."]
+margin_left = 82.0
+margin_top = 306.0
+margin_right = 215.0
+margin_bottom = 383.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Caras_TexButton"]
+anims/slide = SubResource( 13 )
+
+[node name="Caras2" type="Sprite" parent="Caras_TexButton/AnimationPlayer"]
+position = Vector2( 148.419, 345.444 )
+scale = Vector2( 0.506657, 0.5 )
 texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 464, 245, 150 )
+
+[node name="Bocas_TexButton" type="TextureButton" parent="."]
+margin_left = 87.0
+margin_top = 227.0
+margin_right = 215.0
+margin_bottom = 306.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bocas_TexButton"]
+anims/slide = SubResource( 14 )
+
+[node name="Bocas" type="Sprite" parent="Bocas_TexButton/AnimationPlayer"]
+position = Vector2( 148.63, 265.452 )
+scale = Vector2( 0.506657, 0.5 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 0, 464, 249, 154 )
