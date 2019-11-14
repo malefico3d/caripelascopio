@@ -1,0 +1,657 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Juego2D.gd" type="Script" id=1]
+[ext_resource path="res://fondo_pantalla.png" type="Texture" id=2]
+[ext_resource path="res://Mascaras/Caras_mascara.png" type="Texture" id=3]
+[ext_resource path="res://Discos/Caras_disco1.png" type="Texture" id=4]
+[ext_resource path="res://Caras_disco1.gd" type="Script" id=5]
+[ext_resource path="res://Mascaras/Bocas_mascara.png" type="Texture" id=6]
+[ext_resource path="res://Discos/Bocas_disco1.png" type="Texture" id=7]
+[ext_resource path="res://Mascaras/Ojos_mascara_R.png" type="Texture" id=8]
+[ext_resource path="res://Discos/Ojos_disco1.png" type="Texture" id=9]
+[ext_resource path="res://Mascaras/Nariz_mascara.png" type="Texture" id=10]
+[ext_resource path="res://Discos/Nariz_disco1.png" type="Texture" id=11]
+[ext_resource path="res://Mascaras/Ojos_mascara.png" type="Texture" id=12]
+[ext_resource path="res://Menues/Ojos.png" type="Texture" id=13]
+[ext_resource path="res://Menues/Nasos.png" type="Texture" id=14]
+[ext_resource path="res://Menues/Caras.png" type="Texture" id=15]
+[ext_resource path="res://Menues/Bocas.png" type="Texture" id=16]
+
+[sub_resource type="Animation" id=1]
+resource_name = "RotacionCara"
+length = 4.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 2.501, 2.502, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -44.5706, -0.0326449, 44.2553, 89.8624, 135.477, 179.39, -21.2, 180.007, 223.788, 269.985, 315.655 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../Caras/AniCara")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1, 1.5, 2, 2.5, 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ true ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Rotacion"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -47.2975, -87.0352, -129.92, -176.746, -224.451, -269.276, -314.833, -357.45, -406.169 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../Bocas/AniBoca")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ true ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="ButtonGroup" id=3]
+
+[sub_resource type="Animation" id=4]
+length = 4.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -90.0, -135.0, -180.0, -225.0, -270.0, -315.0, -360.0, -405.0, -450.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AniGiroOjo")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ true ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Giro"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 44.9999, 89.9999, 135.0, 180.0, 225.0, 270.0, 315.0, 359.999 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AniGiroNariz")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ true ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 4.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -90.0996, -42.8039, -0.111563, 44.5747, 89.901, 134.593, 179.961, 225.579, 270.002 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../Ojos-izquierda/AniGiroOjo2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ true ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Ojos_TexButton/AnimationPlayer/Ojos:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Rect2( 0, 0, 249, 154 ), Rect2( 0, 155, 249, 154 ), Rect2( 0, 309, 249, 154 ), Rect2( 0, 464, 249, 154 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../Ojos_TexButton/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ true ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Nariz_TexButton/AnimationPlayer/Narices:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Rect2( 0, 0, 249, 154 ), Rect2( 0, 155, 249, 154 ), Rect2( 0, 309, 249, 154 ), Rect2( 0, 464, 249, 154 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../Nariz_TexButton/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ true ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Caras_TexButton/AnimationPlayer/Caras2:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Rect2( 0, 0, 245, 150 ), Rect2( 0, 155, 245, 150 ), Rect2( 0, 309, 245, 150 ), Rect2( 0, 464, 245, 150 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../Caras_TexButton/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ true ],
+"method": "stop"
+} ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Bocas_TexButton/AnimationPlayer/Bocas:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Rect2( 0, 0, 249, 154 ), Rect2( 0, 155, 249, 154 ), Rect2( 0, 309, 249, 154 ), Rect2( 0, 464, 249, 154 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../Bocas_TexButton/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ false ],
+"method": "stop"
+}, {
+"args": [ true ],
+"method": "stop"
+} ]
+}
+
+[node name="CaripelasCopio" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 290.807 ],
+"_edit_vertical_guides_": [ -295.197, 87.8605, 213.079 ]
+}
+
+[node name="fondo_pantalla" type="Sprite" parent="."]
+position = Vector2( 513.34, 301.432 )
+scale = Vector2( 1.00136, 1 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="CARA" type="TextureButton" parent="."]
+margin_left = -41.379
+margin_top = -261.336
+margin_right = 1118.62
+margin_bottom = 965.664
+rect_scale = Vector2( 0.374235, 0.422553 )
+rect_pivot_offset = Vector2( 574.361, 535.744 )
+
+[node name="cara_mask" type="Light2D" parent="CARA"]
+position = Vector2( -1638.11, 624.086 )
+scale = Vector2( 3.06759, 2.71682 )
+texture = ExtResource( 3 )
+mode = 3
+range_height = -30.5
+range_item_cull_mask = 16
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Caras" type="Sprite" parent="CARA/cara_mask"]
+light_mask = 16
+rotation = -0.777904
+scale = Vector2( 0.999678, 0.999678 )
+z_index = -1
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AniCara" type="AnimationPlayer" parent="CARA/cara_mask/Caras"]
+anims/RotacionCara = SubResource( 1 )
+
+[node name="BOCA" type="TextureButton" parent="."]
+editor/display_folded = true
+margin_left = 502.259
+margin_top = 362.615
+margin_right = 578.26
+margin_bottom = 524.615
+rect_rotation = -0.555683
+rect_scale = Vector2( 2.09299, 1.46483 )
+rect_pivot_offset = Vector2( 39.3138, 64.7993 )
+
+[node name="boca_mask" type="Light2D" parent="BOCA"]
+light_mask = 8
+position = Vector2( -79.7602, 75.0024 )
+rotation = 0.013857
+scale = Vector2( 0.195902, 0.279889 )
+texture = ExtResource( 6 )
+mode = 3
+range_item_cull_mask = 8
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Bocas" type="Sprite" parent="BOCA/boca_mask"]
+show_behind_parent = true
+light_mask = 8
+position = Vector2( -24.4356, 17.3783 )
+rotation = -0.811075
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AniBoca" type="AnimationPlayer" parent="BOCA/boca_mask/Bocas"]
+anims/Rotacion = SubResource( 2 )
+
+[node name="OJO_R" type="TextureButton" parent="."]
+editor/display_folded = true
+margin_left = 432.892
+margin_top = 157.728
+margin_right = 792.892
+margin_bottom = 351.728
+rect_scale = Vector2( 0.374235, 0.422553 )
+rect_pivot_offset = Vector2( 154.183, 65.191 )
+group = SubResource( 3 )
+
+[node name="Ojos_mask-derecha" type="Light2D" parent="OJO_R"]
+position = Vector2( 685.702, 126.655 )
+rotation = 3.14159
+scale = Vector2( -0.8, 0.8 )
+texture = ExtResource( 8 )
+mode = 3
+range_item_cull_mask = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ojo-derecho" type="Sprite" parent="OJO_R/Ojos_mask-derecha"]
+show_behind_parent = true
+light_mask = 2
+position = Vector2( 46.0017, 32.4011 )
+rotation = -1.5708
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AniGiroOjo" type="AnimationPlayer" parent="OJO_R/Ojos_mask-derecha/Ojo-derecho"]
+anims/Rotacion = SubResource( 4 )
+
+[node name="NARIZ" type="TextureButton" parent="."]
+editor/display_folded = true
+light_mask = 1024
+margin_left = 494.347
+margin_top = 200.786
+margin_right = 577.347
+margin_bottom = 343.786
+
+[node name="Nariz" type="Light2D" parent="NARIZ"]
+position = Vector2( -208.559, 98.1156 )
+scale = Vector2( 0.34917, 0.34917 )
+texture = ExtResource( 10 )
+mode = 3
+range_item_cull_mask = 32
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Nariz" type="Sprite" parent="NARIZ/Nariz"]
+light_mask = 32
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AniGiroNariz" type="AnimationPlayer" parent="NARIZ/Nariz/Nariz"]
+anims/Giro = SubResource( 5 )
+
+[node name="OJO_L" type="TextureButton" parent="."]
+editor/display_folded = true
+margin_left = 313.36
+margin_top = 158.029
+margin_right = 671.36
+margin_bottom = 338.029
+rect_scale = Vector2( 0.374235, 0.422553 )
+rect_pivot_offset = Vector2( 137.229, 52.3022 )
+
+[node name="Ojos_mask-izquierda" type="Light2D" parent="OJO_L"]
+position = Vector2( -360.736, 75.7301 )
+scale = Vector2( 0.80698, 0.714703 )
+texture = ExtResource( 12 )
+mode = 3
+range_item_cull_mask = 4
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Ojos-izquierda" type="Sprite" parent="OJO_L/Ojos_mask-izquierda"]
+light_mask = 4
+position = Vector2( 34.9383, -4.99121 )
+rotation = -1.57253
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AniGiroOjo2" type="AnimationPlayer" parent="OJO_L/Ojos_mask-izquierda/Ojos-izquierda"]
+anims/Rotacion = SubResource( 6 )
+
+[node name="Ojos_TexButton" type="TextureButton" parent="."]
+margin_left = 89.0
+margin_top = 152.0
+margin_right = 212.0
+margin_bottom = 226.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ojos_TexButton"]
+anims/slide = SubResource( 7 )
+
+[node name="Ojos" type="Sprite" parent="Ojos_TexButton/AnimationPlayer"]
+position = Vector2( 150, 188.231 )
+scale = Vector2( 0.502587, 0.5 )
+texture = ExtResource( 13 )
+region_enabled = true
+region_rect = Rect2( 0, 464, 249, 154 )
+
+[node name="Nariz_TexButton" type="TextureButton" parent="."]
+margin_left = 88.4279
+margin_top = 70.0
+margin_right = 211.428
+margin_bottom = 144.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Nariz_TexButton"]
+anims/slide = SubResource( 10 )
+
+[node name="Narices" type="Sprite" parent="Nariz_TexButton/AnimationPlayer"]
+position = Vector2( 149.428, 108 )
+scale = Vector2( 0.502587, 0.5 )
+texture = ExtResource( 14 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 249, 154 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Caras_TexButton" type="TextureButton" parent="."]
+margin_left = 89.0
+margin_top = 306.0
+margin_right = 215.0
+margin_bottom = 381.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Caras_TexButton"]
+anims/slide = SubResource( 8 )
+
+[node name="Caras2" type="Sprite" parent="Caras_TexButton/AnimationPlayer"]
+position = Vector2( 180, 440 )
+scale = Vector2( 0.510793, 0.5 )
+texture = ExtResource( 15 )
+offset = Vector2( -55.0143, -173.603 )
+region_enabled = true
+region_rect = Rect2( 0, 464, 245, 150 )
+
+[node name="Bocas_TexButton" type="TextureButton" parent="."]
+margin_left = 89.0
+margin_top = 227.0
+margin_right = 213.0
+margin_bottom = 303.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bocas_TexButton"]
+anims/slide = SubResource( 9 )
+
+[node name="Bocas" type="Sprite" parent="Bocas_TexButton/AnimationPlayer"]
+position = Vector2( 150, 264.29 )
+scale = Vector2( 0.502587, 0.5 )
+texture = ExtResource( 16 )
+region_enabled = true
+region_rect = Rect2( 0, 464, 249, 154 )

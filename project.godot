@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="CaripelasCopio"
-run/main_scene="res://Juego2D.tscn"
+run/main_scene="res://pantalla_MAIN.tscn"
 
 [display]
 

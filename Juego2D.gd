@@ -10,10 +10,14 @@ var cara_textura_3 = preload("res://Discos/Caras_disco3.png")
 var boca_textura_1 = preload("res://Discos/Bocas_disco1.png")
 var boca_textura_2 = preload("res://Discos/Bocas_disco2.png")
 var boca_textura_3 = preload("res://Discos/Bocas_disco3.png")
+var nariz_textura_1 = preload("res://Discos/Nariz_disco1.png")
+var nariz_textura_2 = preload("res://Discos/Nariz_disco2.png")
+var nariz_textura_3 = preload("res://Discos/Nariz_disco3.png")
 
-var C= 0
-var O= 0
-var B= 0
+var C= 1
+var O= 1
+var B= 1
+var N= 1
 # var b = "text"
 
 
@@ -24,14 +28,15 @@ var B= 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node("Rotar-ojo-derecho").connect("pressed", self,"_on_ojo_derecho_pressed")
-	get_node("Rotar-ojo-izquierdo").connect("pressed", self,"_on_ojo_izquierdo_pressed")
-	get_node("Rotar-boca").connect("pressed", self, "_on_boca_pressed")
-	get_node("Rotar-cara").connect("pressed", self, "_on_cara_pressed")
+	get_node("OJO_R").connect("pressed", self,"_on_ojo_derecho_pressed")
+	get_node("OJO_L").connect("pressed", self,"_on_ojo_izquierdo_pressed")
+	get_node("BOCA").connect("pressed", self, "_on_boca_pressed")
+	get_node("CARA").connect("pressed", self, "_on_cara_pressed")
+	get_node("NARIZ").connect("pressed", self, "_on_nariz_pressed")
 	get_node("Caras_TexButton").connect("pressed", self, "_on_cara_textura_pressed")
 	get_node("Ojos_TexButton").connect("pressed", self, "_on_ojos_textura_pressed")
 	get_node("Bocas_TexButton").connect("pressed", self, "_on_bocas_textura_pressed")
-	
+	get_node("Nariz_TexButton").connect("pressed", self, "_on_nariz_textura_pressed")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,19 +49,23 @@ func _process(delta):
 	
 		
 func _on_ojo_derecho_pressed():
-	get_node("Cara/Ojos_mask-derecha/AniGiroOjo").play("Rotacion")
+	get_node("OJO_R/Ojos_mask-derecha/Ojo-derecho/AniGiroOjo").play("Rotacion")
 	
 func _on_ojo_izquierdo_pressed():
-	get_node("Cara/Ojos_mask-izquierda/AniGiroOjo2").play("Rotacion")
+	get_node("OJO_L/Ojos_mask-izquierda/Ojos-izquierda/AniGiroOjo2").play("Rotacion")
 
 func _on_boca_pressed():
 	print("boca")
-	get_node("Cara/boca_mask/AniBoca").play("Rotacion")
+	get_node("BOCA/boca_mask/Bocas/AniBoca").play("Rotacion")
 
 func _on_cara_pressed():
 	print("cara")
-	get_node("Cara/cara_mask/AniCara").play("RotacionCara")
+	get_node("CARA/cara_mask/Caras/AniCara").play("RotacionCara")
 
+func _on_nariz_pressed():
+	print("nariz")
+	get_node("NARIZ/Nariz/Nariz/AniGiroNariz").play("Giro")
+	
 func _on_cara_textura_pressed():
 	get_node("Caras_TexButton/AnimationPlayer").play("slide")
 	_cambiar_textura_caras()
@@ -78,40 +87,61 @@ func _on_bocas_textura_pressed():
 	if B>2:
 		B=0
 
+func _on_nariz_textura_pressed():
+	print("Cambia textura de bocas")
+	get_node("Nariz_TexButton/AnimationPlayer").play("slide")
+	_cambiar_textura_nariz()
+	N+=1
+	if N>2:
+		N=0
+		
 func _cambiar_textura_caras():
 	print("Cambia textura de cara")
 	match C:
 		0:
-			get_node("Cara/cara_mask/AniCara/Caras").set_texture(cara_textura_1)
+			get_node("CARA/cara_mask/Caras").set_texture(cara_textura_1)
 		1:
-			get_node("Cara/cara_mask/AniCara/Caras").set_texture(cara_textura_2)
+			get_node("CARA/cara_mask/Caras").set_texture(cara_textura_2)
 		2:
-			get_node("Cara/cara_mask/AniCara/Caras").set_texture(cara_textura_3)
+			get_node("CARA/cara_mask/Caras").set_texture(cara_textura_3)
 
 func _cambiar_textura_ojos():
 	print("Cambia textura de ojos")
 	print("Set para ojos es:", O)
 	match O:
 		0:
-			get_node("Cara/Ojos_mask-derecha/AniGiroOjo/Ojos-derecha").set_texture(ojos_textura_1)
-			print("ESTO SALE?")
+			#get_node("Cara/Ojos_mask-derecha/AniGiroOjo/Ojos-derecha").set_texture(ojos_textura_1)
+			get_node("OJO_R/Ojos_mask-derecha/Ojo-derecho").set_texture(ojos_textura_1)
+			#get_node("Cara/Ojos_mask-derecha/AniGiroOjo/Ojo-derecho").update()
+			get_node("OJO_L/Ojos_mask-izquierda/Ojos-izquierda").set_texture(ojos_textura_1)
 		1:
-			get_node("Cara/Ojos_mask-derecha/AniGiroOjo/Ojos-derecha").set_texture(ojos_textura_2)
-			get_node("Cara/Ojos_mask-izquierda/AniGiroOjo2/Ojos-izquierda").set_texture(ojos_textura_2)
+			#get_node("Cara/Ojos_mask-derecha/AniGiroOjo/Ojos-derecha").set_texture(ojos_textura_2)
+			get_node("OJO_R/Ojos_mask-derecha/Ojo-derecho").set_texture(ojos_textura_2)
+			get_node("OJO_L/Ojos_mask-izquierda/Ojos-izquierda").set_texture(ojos_textura_2)
 		2:
-			get_node("Cara/Ojos_mask-derecha/AniGiroOjo/Ojos-derecha").set_texture(ojos_textura_3)
-			get_node("Cara/Ojos_mask-izquierda/AniGiroOjo2/Ojos-izquierda").set_texture(ojos_textura_3)
+			#get_node("Cara/Ojos_mask-derecha/AniGiroOjo/Ojos-derecha").set_texture(ojos_textura_3)
+			get_node("OJO_R/Ojos_mask-derecha/Ojo-derecho").set_texture(ojos_textura_3)
+			get_node("OJO_L/Ojos_mask-izquierda/Ojos-izquierda").set_texture(ojos_textura_3)
 
 func _cambiar_textura_bocas():
 	print("Cambia textura de cara")
 	match B:
 		0:
-			get_node("Cara/boca_mask/AniBoca/Bocas").set_texture(boca_textura_1)
+			get_node("BOCA/boca_mask/Bocas").set_texture(boca_textura_1)
 		1:
-			get_node("Cara/boca_mask/AniBoca/Bocas").set_texture(boca_textura_2)
+			get_node("BOCA/boca_mask/Bocas").set_texture(boca_textura_2)
 		2:
-			get_node("Cara/boca_mask/AniBoca/Bocas").set_texture(boca_textura_3)
+			get_node("BOCA/boca_mask/Bocas").set_texture(boca_textura_3)
 	
+
+func _cambiar_textura_nariz():
+	match N:
+		0:
+			get_node("NARIZ/Nariz/Nariz").set_texture(nariz_textura_1)
+		1:
+			get_node("NARIZ/Nariz/Nariz").set_texture(nariz_textura_2)
+		2:
+			get_node("NARIZ/Nariz/Nariz").set_texture(nariz_textura_3)
 
 	
 	
