@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Caras_rueda.gd" type="Script" id=1]
+[ext_resource path="res://Discos/Caras_disco2.png" type="Texture" id=2]
+[ext_resource path="res://CollisionShape2D.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 185.454, 240.112 )
+
+[node name="Caras_rueda" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Caras_disco2" type="Sprite" parent="."]
+position = Vector2( 404.659, 306.632 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="Caras_disco2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caras_disco2/Area2D"]
+position = Vector2( 728.21, 14.6816 )
+shape = SubResource( 1 )
+script = ExtResource( 3 )
+[connection signal="input_event" from="Caras_disco2/Area2D" to="." method="_on_Area2D_input_event"]

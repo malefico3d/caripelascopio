@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="CaripelasCopio"
 run/main_scene="res://pantalla_MAIN.tscn"
 
+[autoload]
+
+Mis_funciones="*res://Mis_funciones.gd"
+
 [display]
 
 window/stretch/mode="2d"

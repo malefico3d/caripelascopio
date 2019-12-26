@@ -18,13 +18,7 @@ var C= 1
 var O= 1
 var B= 1
 var N= 1
-# var b = "text"
 
-
-#var ojos_L = "Cara/Ojos_mask-izquierda/Ojos-izquierda"
-#var ojos_R = "Cara/Ojos_mask-derecha/Ojos-derecha"
-#var boca = "Cara/boca_mask/Bocas"
-#var cara = "Cara/cara_mask/Caras"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,23 +32,20 @@ func _ready():
 	get_node("Bocas_TexButton").connect("pressed", self, "_on_bocas_textura_pressed")
 	get_node("Nariz_TexButton").connect("pressed", self, "_on_nariz_textura_pressed")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#pass
-	#print(ojos_textura)
-	#print(caras_textura)
-	#print(bocas_textura)
-	print("----")
-	
 		
 func _on_ojo_derecho_pressed():
+	var ojo_R=get_node("OJO_R")
+	Mis_funciones.OJO_DERECHO_OFFSET =  get_global_mouse_position() - ojo_R.rect_position
 	get_node("OJO_R/Ojos_mask-derecha/Ojo-derecho/AniGiroOjo").play("Rotacion")
 	
 func _on_ojo_izquierdo_pressed():
+	var ojo_L = get_node("OJO_L")
+	Mis_funciones.OJO_IZQUIERDO_OFFSET = get_global_mouse_position() - ojo_L.rect_position
 	get_node("OJO_L/Ojos_mask-izquierda/Ojos-izquierda/AniGiroOjo2").play("Rotacion")
 
 func _on_boca_pressed():
+	var boca = get_node("BOCA")
+	Mis_funciones.BOCA_OFFSET = get_global_mouse_position() - boca.rect_position
 	print("boca")
 	get_node("BOCA/boca_mask/Bocas/AniBoca").play("Rotacion")
 
@@ -63,6 +54,8 @@ func _on_cara_pressed():
 	get_node("CARA/cara_mask/Caras/AniCara").play("RotacionCara")
 
 func _on_nariz_pressed():
+	var nariz = get_node("NARIZ")
+	Mis_funciones.NARIZ_OFFSET = get_global_mouse_position() - nariz.rect_position
 	print("nariz")
 	get_node("NARIZ/Nariz/Nariz/AniGiroNariz").play("Giro")
 	
@@ -145,3 +138,5 @@ func _cambiar_textura_nariz():
 
 	
 	
+
+
